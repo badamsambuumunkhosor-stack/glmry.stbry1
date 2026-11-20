@@ -179,7 +179,7 @@ body.cartopen #drawer{transform:none}
   <section id="why">
     <div class="title"><h2>Yagaad glmry.stbre?</h2></div>
     <div class="why">
-      <div><b>🎁</b>Belen baglaatai</div>
+      <div><b>🎁</b>Zahialga 10-15 honogt</div>
       <div><b>💌</b>Hairiin zurvas</div>
       <div><b>🚚</b>Hurgelt</div>
       <div><b>✨</b>Luxury but cute</div>
@@ -285,7 +285,7 @@ $('#shade').onclick=()=>setCart(false);$('#toOrder').onclick=()=>setCart(false);
 $('#sendOrder').onclick=()=>{
  const n=$('#oName').value.trim(),ph=$('#oPhone').value.trim(),a=$('#oAddr').value.trim();
  if(!cart.length)return toast('Sagsand beleg nemne uu');
- if(!n||!ph||!a)return toast('Buh talbaraa buglnu uu');
+ if(!n||!ph||!a)return toast('Buh talbaraa buglunu uu');
  const lines=cart.map(c=>{const p=PRODUCTS.find(x=>x.id===c.id);return `• ${p.name} x${c.q} = ${fmt(p.price*c.q)}`}).join('\n');
  const total=cart.reduce((s,c)=>s+c.q*PRODUCTS.find(x=>x.id===c.id).price,0);
  const msg=`Zahialga - glmry.stbre\nNer: ${n}\nUtas: ${ph}\nHayag: ${a}\n${lines}\nNiit: ${fmt(total)}`;
@@ -294,7 +294,7 @@ $('#sendOrder').onclick=()=>{
   btn.disabled=true;btn.textContent='Ilgeej baina...';
   fetch(ORDER_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
    body:JSON.stringify({name:n,phone:ph,address:a,order:lines,total:fmt(total),message:msg})})
-  .then(r=>{if(!r.ok)throw 0;cart=[];save();drawCart();$('#note').textContent='Zahialga amjilttai ilgeegdlee ✦ Bid tanaa udahgui holbogdono.'})
+  .then(r=>{if(!r.ok)throw 0;cart=[];save();drawCart();$('#note').textContent='Zahialga amjilttai ilgeegdlee ✦ Bid tantai udahgui holbogdono.'})
   .catch(()=>{$('#note').textContent='Ilgeehed aldaa garlaa. Dahin oroldono uu.'})
   .finally(()=>{btn.disabled=false;btn.textContent='Zahialga batalgaajuulah'});
  }else{
@@ -329,7 +329,7 @@ const glow=$('#glow');let last=0;
 addEventListener('mousemove',e=>{
  glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px';
  const t=performance.now();if(t-last<45)return;last=t;
- const s=document.createElement('div');s.className='spark';s.textContent=['✦','♥','✧'][Math.random()*3|0];
+ const s=document.createElement('div');s.className='spark';s.textContent=['✦','♥','✧','b','m'][Math.random()*3|0];
  s.style.left=e.clientX+'px';s.style.top=e.clientY+'px';
  s.style.setProperty('--dx',(Math.random()*40-20)+'px');s.style.setProperty('--dy',(Math.random()*40+10)+'px');
  if(Math.random()>.5)s.style.color='#ff3b5c';
